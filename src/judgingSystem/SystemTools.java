@@ -5,7 +5,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.LineNumberReader;
-import java.io.OutputStream;
 
 /**
  * 集成系统工具
@@ -79,109 +78,111 @@ public class SystemTools {
 	}
 
 	/**
-	 * 杀死进程
-	 * 
-	 * @param pid
-	 *            进程ID
-	 * @throws IOException
-	 *             终止进程时抛出异常
-	 */
-	public static void killProcessByPid(long pid) throws IOException {
-		Runtime.getRuntime().exec("taskkill /F /PID " + pid);
-	}
-
-	/**
 	 * 测试 exe
 	 * 
 	 * @param std
 	 *            测试点信息
 	 * @param file
 	 *            文件目录
+	 * @param tempOutputFile
+	 *            临时输出文件目录
 	 * @return 评测结果
-	 * @throws IOException
-	 *             运行异常
-	 * @throws InterruptedException
-	 *             系统异常
 	 */
-	public static EvaluationResult runCPP(TestPoint std, String file) throws IOException, InterruptedException {
+	public static EvaluationResult runCPP(TestPoint std, String file, String tempOutputFile) {
 		EvaluationResult ret = new EvaluationResult();
 
-		BufferedReader read = new BufferedReader(new FileReader(std.getTest_In()));
+		try {
 
-		Process process = Runtime.getRuntime().exec(file);
+			String[] cmds = new String[] { "cmd.exe", "/c",
+					"\"" + file + "\" < \"" + std.getTest_In() + "\" > \"" + tempOutputFile + "\" " };
 
-		long begin = System.currentTimeMillis();
-		OutputStream write = process.getOutputStream();
-		String temp = null;
+			Process process = Runtime.getRuntime().exec(cmds);
 
-		while ((temp = read.readLine()) != null) {
-			write.write((temp + "\n").getBytes());
-			write.flush();
-		}
+			long begin = System.currentTimeMillis();
 
-		read.close();
+			new Thread() {
+				public void run() {
+					long memory;
 
-		new Thread() {
-			public void run() {
-				long memory;
+					while (System.currentTimeMillis() - begin <= std.getTime_Limit() && process.isAlive()) {
+						try {
+							memory = getMemByPID(process.pid());
 
-				while (System.currentTimeMillis() - begin <= std.getTime_Limit() && process.isAlive()) {
-					try {
-						memory = getMemByPID(process.pid());
+							if (memory > ret.getMaxMemory())
+								ret.setMaxMemory(memory);
 
-						if (memory > ret.getMaxMemory())
-							ret.setMaxMemory(memory);
+							if (memory > std.getMemory_Limit() * 1024 * 1024) {
+								process.destroy();
 
-						if (memory > std.getMemory_Limit() * 1024 * 1024) {
-							process.destroy();
+								ret.SetValue(EvaluationResult.Memory_Exceeded);
+								ret.setTimeConsum(System.currentTimeMillis() - begin);
 
-							ret.SetValue(EvaluationResult.Memory_Exceeded);
+								return;
+							}
+
+							Thread.sleep(10);
+						} catch (Exception e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+
+							ret.SetValue(EvaluationResult.System_Error);
 							ret.setTimeConsum(System.currentTimeMillis() - begin);
 
 							return;
 						}
+					}
 
-						Thread.sleep(10);
-					} catch (Exception e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-
-						ret.SetValue(EvaluationResult.System_Error);
+					if (process.isAlive()) {
+						ret.SetValue(EvaluationResult.Time_Exceeded);
 						ret.setTimeConsum(System.currentTimeMillis() - begin);
 
-						return;
+						process.destroy();
 					}
 				}
+			}.start();
 
-				if (process.isAlive())
-					process.destroy();
+			process.waitFor();
+
+			ret.setTimeConsum(System.currentTimeMillis() - begin);
+
+			if (ret.getValue() != EvaluationResult.Unknown_Error)
+				return ret;
+
+			if (process.exitValue() != 0) {
+				ret.SetValue(EvaluationResult.Runtime_Error);
+
+				return ret;
 			}
-		}.start();
-
-		process.waitFor();
-
-		if (ret.getValue() != EvaluationResult.Unknown_Error)
-			return ret;
-
-		if (System.currentTimeMillis() - begin > std.getTime_Limit()) {
-			if (process.isAlive())
-				process.destroy();
-
-			ret.SetValue(EvaluationResult.Time_Exceeded);
-			ret.setTimeConsum(System.currentTimeMillis() - begin);
-
+		} catch (IOException | InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+			
+			ret.SetValue(EvaluationResult.System_Error);
+			
 			return ret;
 		}
+		
+		return ret;
 
-		if (process.exitValue() != 0) {
-			ret.SetValue(EvaluationResult.Runtime_Error);
-			ret.setTimeConsum(System.currentTimeMillis() - begin);
+	}
 
-			return ret;
-		}
+	/**
+	 * 传统答案比较
+	 * 
+	 * @param std
+	 *            测试点信息
+	 * @param tempOutputFile
+	 *            临时输出文件目录
+	 * @param result
+	 *            运行时得到的评测结果
+	 * @return 答案比较结果
+	 */
+	public static EvaluationResult resultComparison(TestPoint std, String tempOutputFile, EvaluationResult result) {
+		if (result.getValue() != EvaluationResult.Unknown_Error)
+			return result;
 
 		try {
-			BufferedReader Test_Read = new BufferedReader(new InputStreamReader(process.getInputStream()));
+			BufferedReader Test_Read = new BufferedReader(new FileReader(tempOutputFile));
 			BufferedReader STD_Read = new BufferedReader(new FileReader(std.getTest_Out()));
 			String STD, player;
 
@@ -190,68 +191,61 @@ public class SystemTools {
 
 				if (player != null) {
 					if (!SystemTools.compareAns(STD, player, std.getJudgeMod())) {
-						ret.SetValue(EvaluationResult.Wrong_Answer);
-						ret.setTimeConsum(System.currentTimeMillis() - begin);
+						result.SetValue(EvaluationResult.Wrong_Answer);
 
 						STD_Read.close();
-						process.destroy();
+						Test_Read.close();
 
-						return ret;
+						return result;
 					}
 				} else {
 					if (STD.trim().equals(""))
 						break;
 					else {
-						ret.SetValue(EvaluationResult.Wrong_Answer);
-						ret.setTimeConsum(System.currentTimeMillis() - begin);
+						result.SetValue(EvaluationResult.Wrong_Answer);
 
 						STD_Read.close();
-						process.destroy();
+						Test_Read.close();
 
-						return ret;
+						return result;
 					}
 				}
 			}
 
 			while ((STD = STD_Read.readLine()) != null)
 				if (!STD.trim().equals("")) {
-					ret.SetValue(EvaluationResult.Wrong_Answer);
-					ret.setTimeConsum(System.currentTimeMillis() - begin);
+					result.SetValue(EvaluationResult.Wrong_Answer);
 
 					STD_Read.close();
-					process.destroy();
+					Test_Read.close();
 
-					return ret;
+					return result;
 				}
-
-			STD_Read.close();
 
 			while ((player = Test_Read.readLine()) != null)
 				if (!player.trim().equals("")) {
-					ret.SetValue(EvaluationResult.Wrong_Answer);
-					ret.setTimeConsum(System.currentTimeMillis() - begin);
+					result.SetValue(EvaluationResult.Wrong_Answer);
 
 					STD_Read.close();
-					process.destroy();
+					Test_Read.close();
 
-					return ret;
+					return result;
 				}
 
-			ret.SetValue(EvaluationResult.Accepted);
-			ret.setTimeConsum(System.currentTimeMillis() - begin);
+			STD_Read.close();
+			Test_Read.close();
+
+			result.SetValue(EvaluationResult.Accepted);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 
-			ret.SetValue(EvaluationResult.System_Error);
-			ret.setTimeConsum(System.currentTimeMillis() - begin);
+			result.SetValue(EvaluationResult.System_Error);
 
-			process.destroy();
-
-			return ret;
+			return result;
 		}
 
-		return ret;
+		return result;
 	}
 
 	/**
@@ -265,7 +259,7 @@ public class SystemTools {
 	 *            比较方式
 	 * @return 比较结果
 	 */
-	public static boolean compareAns(String std, String player, int mod) {
+	private static boolean compareAns(String std, String player, int mod) {
 		switch (mod) {
 		case TestPoint.Byte_By_Byte:
 			return std.equals(player);
@@ -283,7 +277,7 @@ public class SystemTools {
 	 *            需要消除的字符串
 	 * @return 结果
 	 */
-	public static String trimeEndSpace(String str) {
+	private static String trimeEndSpace(String str) {
 		for (int i = str.length() - 1; i >= 0; i--)
 			if (str.substring(i) == " ")
 				str = str.substring(0, i);
