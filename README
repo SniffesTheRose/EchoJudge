@@ -1,11 +1,28 @@
-JudgingSystem v1.1.0
+# JudgingSystem v1.1.0_Alpha
+
+------
+JudgingSystem æä¾›äº†é€‚ç”¨äº NOI(National Olympiad in Informatics) ç³»åˆ—æ¯”èµ›æµ‹è¯„æœºè¯„æµ‹æ–¹å¼ï¼Œé€šè¿‡å¯¼å…¥ JudgingSystem ä½ å¯ä»¥æ–¹ä¾¿çš„ç¼–å†™å‡ºä¸€ä¸ªè¯„æµ‹ç¯å¢ƒ
 
 
-ÖØ´ó¸üĞÂ£º
+----------
+## ä¸‹è½½åœ°å€ 
+**[https://github.com/SniffesTheRose/JudgingSystem/releases](https://github.com/SniffesTheRose/JudgingSystem/releases "ä¸‹è½½é“¾æ¥")**
 
-1.Í¨¹ı¹ÜµÀÖØ¶¨Ïò¼¼ÊõÓÅ»¯³ÌĞòÊäÈëÊä³ö·½Ê½£¬¼Ó¿ìÁË³ÌĞò¶ÁÈëÓëÊä³öµÄËÙ¶È
-2.·ÖÀëÔËĞĞ³ÌĞòÓë±È½Ï´ğ°¸Ä£¿é£¬ÎªSPJÔ¤Áô½Ó¿Ú
-3.ÓÅ»¯ÁËÔËĞĞÊ±¼ä¼ÆËã·½Ê½£¬¼õÉÙÁË¿¨Ê±ÎóÅĞµÄ¼¸ÂÊ
-4.´ğ°¸ĞÅÏ¢¶ÔÏóÖĞÉ¾³ıÁË±àÒë´íÎóÑ¡Ïî
+----------
+## è­¦å‘Š
 
-´Ë°æ±¾²»ÔÙÏòÏÂ¼æÈİ
+**v1.1.0_Alpha ç‰ˆæœ¬åªæä¾›å¯¹ c++ ç¨‹åºçš„ç¼–è¯‘ä¸æµ‹è¯„**
+
+----------
+
+## ä¸‹è½½ä¸å®‰è£…
+
+æ‚¨å¯ä»¥ä¸‹è½½ JudgingSystem.jar å¹¶å¯¼å…¥åˆ°æ‚¨çš„å·¥ç¨‹ï¼ŒSystemTools.dll è¯·æ”¾ç½®äºç¨‹åºæ ¹ç›®å½•
+
+è¯·åœ¨ç¨‹åºå¼€å§‹æ—¶è¯·ä½¿ç”¨ä¸‹åˆ—æ–¹æ³•å¯¼å…¥åŠ¨æ€åº“
+
+	SystemTools.prestrain();
+
+è¯¦æƒ…ä½¿ç”¨æ–¹æ³•å‚é˜… doc æ–‡æ¡£
+
+[https://github.com/SniffesTheRose/JudgingSystem/tree/master/doc](https://github.com/SniffesTheRose/JudgingSystem/tree/master/doc)
