@@ -51,6 +51,7 @@ public class SystemTools {
 				.exec("\"" + compile_File + "\" \"" + fileName + "\" -o \"" + outPutFile + "\"");
 
 		new Thread() {
+			@Override
 			public void run() {
 				try {
 					for (int i = 1; i <= 10 && process.isAlive(); i++)
@@ -74,7 +75,7 @@ public class SystemTools {
 		while ((line = input.readLine()) != null)
 			res += line + '\n';
 
-		return res == "" ? (process.exitValue() == 0 ? "ÎÞ±àÒëÐÅÏ¢" : "±àÒë³¬Ê±") + "" : res;
+		return res == "" ? (process.exitValue() == 0 ? null : "±àÒë³¬Ê±") + "" : res;
 	}
 
 	/**
@@ -101,6 +102,7 @@ public class SystemTools {
 			long begin = System.currentTimeMillis();
 
 			new Thread() {
+				@Override
 				public void run() {
 					long memory;
 
