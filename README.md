@@ -22,6 +22,6 @@ JudgingSystem 提供了适用于 NOI(National Olympiad in Informatics) 系列比
 
 	SystemTools.prestrain();
  
-详情请参阅 doc 文档
+### 详情请参阅 doc 文档
 
 [JudgingSystem DOC 文档](https://sniffestherose.github.io/JudgingSystem/doc/index.html)
