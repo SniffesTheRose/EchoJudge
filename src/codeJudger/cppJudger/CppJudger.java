@@ -162,6 +162,7 @@ public class CppJudger extends Judger {
 					+ std.getScore() + "\" \"" + Score_File + "\" \"" + Error_File + "\" ");
 
 			new Thread() {
+				@Override
 				public void run() {
 					try {
 						String temp = null;
@@ -185,6 +186,7 @@ public class CppJudger extends Judger {
 			}.start();
 
 			new Thread() {
+				@Override
 				public void run() {
 					try {
 						String temp = null;
@@ -207,8 +209,36 @@ public class CppJudger extends Judger {
 					}
 				}
 			}.start();
+			
+			new Thread() {
+				@Override
+				public void run() {
+					try {
+						String temp = null;
+						BufferedReader read = new BufferedReader(new InputStreamReader(inte.getErrorStream()));
+
+						while (inte.isAlive() && (temp = read.readLine()) != null) {
+							if (temp.trim().equals("System_Shutdown"))
+								player.destroy();
+						}
+
+						if (player.isAlive())
+							player.destroy();
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+
+						ret.SetValue(EvaluationResult.System_Error);
+						ret.setTimeConsum(System.currentTimeMillis() - begin);
+						ret.setSPJ(false, null, 0);
+
+						return;
+					}
+				}
+			}.start();
 
 			new Thread() {
+				@Override
 				public void run() {
 					long memory;
 
