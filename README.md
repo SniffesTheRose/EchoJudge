@@ -24,4 +24,4 @@ JudgingSystem 提供了适用于 NOI(National Olympiad in Informatics) 系列比
 
 详情使用方法参阅 doc 文档
 
-[https://github.com/SniffesTheRose/JudgingSystem/tree/master/doc](https://github.com/SniffesTheRose/JudgingSystem/tree/master/doc)
+[JudgingSystem DOC 文档](https://sniffestherose.github.io/JudgingSystem/doc/index.html)
