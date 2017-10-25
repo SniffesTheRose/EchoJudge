@@ -1,7 +1,7 @@
-package judgingSystem;
+package codeJudger;
 
 /**
- * ´ğ°¸ĞÅÏ¢
+ * ç­”æ¡ˆä¿¡æ¯
  * 
  * @author lenovo
  *
@@ -9,49 +9,49 @@ package judgingSystem;
 public class EvaluationResult {
 
 	/**
-	 * Í¨¹ı
+	 * é€šè¿‡
 	 */
 	public static final int Accepted = 1;
 	/**
-	 * ³ÌĞòÊä³öÓë±ê×¼´ğ°¸²»Ò»ÖÂ£¨²»°üÀ¨ĞĞÄ©¿Õ¸ñÒÔ¼°ÎÄ¼şÄ©¿ÕĞĞ£©
+	 * ç¨‹åºè¾“å‡ºä¸æ ‡å‡†ç­”æ¡ˆä¸ä¸€è‡´ï¼ˆä¸åŒ…æ‹¬è¡Œæœ«ç©ºæ ¼ä»¥åŠæ–‡ä»¶æœ«ç©ºè¡Œï¼‰
 	 */
 	public static final int Wrong_Answer = 2;
 	/**
-	 * ³ÌĞòÔËĞĞÊ±¼ä³¬¹ıÁËÌâÄ¿ÏŞÖÆ
+	 * ç¨‹åºè¿è¡Œæ—¶é—´è¶…è¿‡äº†é¢˜ç›®é™åˆ¶
 	 */
 	public static final int Time_Exceeded = 3;
 	/**
-	 * ³ÌĞòÔËĞĞÄÚ´æ¿Õ¼ä³¬¹ıÁËÌâÄ¿ÏŞÖÆ
+	 * ç¨‹åºè¿è¡Œå†…å­˜ç©ºé—´è¶…è¿‡äº†é¢˜ç›®é™åˆ¶
 	 */
 	public static final int Memory_Exceeded = 4;
 	/**
-	 * ³ÌĞòÔËĞĞÊ±´íÎó
+	 * ç¨‹åºè¿è¡Œæ—¶é”™è¯¯
 	 */
 	public static final int Runtime_Error = 5;
 	/**
-	 * ÏµÍ³´íÎó
+	 * ç³»ç»Ÿé”™è¯¯
 	 */
 	public static final int System_Error = 6;
 	/**
-	 * ÆÀ²â±»È¡Ïû
+	 * è¯„æµ‹è¢«å–æ¶ˆ
 	 */
 	public static final int Canceled = 7;
 	/**
-	 * Î´Öª´íÎó
+	 * æœªçŸ¥é”™è¯¯
 	 */
 	public static final int Unknown_Error = 8;
 
-	private String SPJ_ret; // SPJ·µ»ØÌáÊ¾
-	private boolean SPJ;// ÊÇ·ñÊ¹ÓÃSPJ
-	private long SPJ_Score;// SPJµÃ·Ö
+	private String SPJ_ret; // SPJè¿”å›æç¤º
+	private boolean SPJ;// æ˜¯å¦ä½¿ç”¨SPJ
+	private long SPJ_Score;// SPJå¾—åˆ†
 
-	private int value;// ´ğ°¸×´Ì¬
+	private int value;// ç­”æ¡ˆçŠ¶æ€
 
 	private long maxMemory;
 	private long TimeConsum;
 
 	/**
-	 * ¹¹ÔìÒ»¸ö¾ßÓĞÎ´Öª´íÎóµÄ³õÊ¼´ğ°¸
+	 * æ„é€ ä¸€ä¸ªå…·æœ‰æœªçŸ¥é”™è¯¯çš„åˆå§‹ç­”æ¡ˆ
 	 */
 	public EvaluationResult() {
 		value = EvaluationResult.Unknown_Error;
@@ -59,26 +59,26 @@ public class EvaluationResult {
 	}
 
 	/**
-	 * ¹¹ÔìÒ»¸ö¾ßÓĞ¸ø¶¨ÖµµÄ³õÊ¼´ğ°¸
+	 * æ„é€ ä¸€ä¸ªå…·æœ‰ç»™å®šå€¼çš„åˆå§‹ç­”æ¡ˆ
 	 * 
 	 * @param value
-	 *            ÆÀ²â½á¹ûÀàĞÍ
+	 *            è¯„æµ‹ç»“æœç±»å‹
 	 */
 	public EvaluationResult(int value) {
 		this.value = value;
 	}
 
 	/**
-	 * ¹¹ÔìÒ»¸öÖ¸¶¨SPJµÄ³õÊ¼´ğ°¸
+	 * æ„é€ ä¸€ä¸ªæŒ‡å®šSPJçš„åˆå§‹ç­”æ¡ˆ
 	 * 
 	 * @param value
-	 *            ²âÆÀ½á¹ûÀàĞÍ
+	 *            æµ‹è¯„ç»“æœç±»å‹
 	 * @param SPJ
-	 *            ÊÇ·ñÊ¹ÓÃSPJ
+	 *            æ˜¯å¦ä½¿ç”¨SPJ
 	 * @param SPJ_ret
-	 *            SPJÌáÊ¾ĞÅÏ¢
+	 *            SPJæç¤ºä¿¡æ¯
 	 * @param SPJ_Score
-	 *            SPJµÃ·Ö
+	 *            SPJå¾—åˆ†
 	 */
 	public EvaluationResult(int value, boolean SPJ, String SPJ_ret, long SPJ_Score) {
 		this.value = value;
@@ -88,44 +88,44 @@ public class EvaluationResult {
 	}
 
 	/**
-	 * ÉèÖÃ³ÌĞòÓÃÊ±
+	 * è®¾ç½®ç¨‹åºç”¨æ—¶
 	 * 
 	 * @param TimeConsum
-	 *            ³ÌĞòÓÃÊ±
+	 *            ç¨‹åºç”¨æ—¶
 	 */
 	public void setTimeConsum(long TimeConsum) {
 		this.TimeConsum = TimeConsum;
 	}
 
 	/**
-	 * ÉèÖÃ×î´óÄÚ´æÕ¼ÓÃ
+	 * è®¾ç½®æœ€å¤§å†…å­˜å ç”¨
 	 * 
 	 * @param memory
-	 *            ×î´óÄÚ´æÕ¼ÓÃ
+	 *            æœ€å¤§å†…å­˜å ç”¨
 	 */
 	public void setMaxMemory(long memory) {
 		this.maxMemory = memory;
 	}
 
 	/**
-	 * ÉèÖÃÆÀ²â½á¹ûÀàĞÍ
+	 * è®¾ç½®è¯„æµ‹ç»“æœç±»å‹
 	 * 
 	 * @param value
-	 *            ÆÀ²â½á¹ûÀàĞÍ
+	 *            è¯„æµ‹ç»“æœç±»å‹
 	 */
 	public void SetValue(int value) {
 		this.value = value;
 	}
 
 	/**
-	 * ÉèÖÃSPJĞÅÏ¢
+	 * è®¾ç½®SPJä¿¡æ¯
 	 * 
 	 * @param SPJ
-	 *            ÊÇ·ñÊ¹ÓÃSPJ
+	 *            æ˜¯å¦ä½¿ç”¨SPJ
 	 * @param SPJ_ret
-	 *            SPJÌáÊ¾ĞÅÏ¢
+	 *            SPJæç¤ºä¿¡æ¯
 	 * @param SPJ_Score
-	 *            SPJµÃ·Ö
+	 *            SPJå¾—åˆ†
 	 */
 	public void setSPJ(boolean SPJ, String SPJ_ret, long SPJ_Score) {
 		this.SPJ_ret = SPJ_ret;
@@ -134,54 +134,54 @@ public class EvaluationResult {
 	}
 
 	/**
-	 * »ñµÃ½á¹ûÀàĞÍ
+	 * è·å¾—ç»“æœç±»å‹
 	 * 
-	 * @return ½á¹ûÀàĞÍ
+	 * @return ç»“æœç±»å‹
 	 */
 	public int getValue() {
 		return this.value;
 	}
 
 	/**
-	 * »ñµÃSPJÊ¹ÓÃÇé¿ö
+	 * è·å¾—SPJä½¿ç”¨æƒ…å†µ
 	 * 
-	 * @return ÊÇ·ñÊ¹ÓÃSPJ
+	 * @return æ˜¯å¦ä½¿ç”¨SPJ
 	 */
 	public boolean getSPJ() {
 		return this.SPJ;
 	}
 
 	/**
-	 * »ñµÃSPJÌáÊ¾ĞÅÏ¢
+	 * è·å¾—SPJæç¤ºä¿¡æ¯
 	 * 
-	 * @return SPJÌáÊ¾ĞÅÏ¢
+	 * @return SPJæç¤ºä¿¡æ¯
 	 */
 	public String getSPJ_ret() {
 		return this.SPJ_ret;
 	}
 
 	/**
-	 * »ñµÃSPJµÃ·Ö
+	 * è·å¾—SPJå¾—åˆ†
 	 * 
-	 * @return SPJµÃ·Ö
+	 * @return SPJå¾—åˆ†
 	 */
 	public long getSPJ_Score() {
 		return this.SPJ_Score;
 	}
 
 	/**
-	 * »ñÈ¡³ÌĞòÕ¼ÓÃ×î´óÄÚ´æ
+	 * è·å–ç¨‹åºå ç”¨æœ€å¤§å†…å­˜
 	 * 
-	 * @return ³ÌĞòÕ¼ÓÃ×î´óÄÚ´æ
+	 * @return ç¨‹åºå ç”¨æœ€å¤§å†…å­˜
 	 */
 	public long getMaxMemory() {
 		return this.maxMemory;
 	}
 
 	/**
-	 * »ñÈ¡³ÌĞòÔËĞĞÊ±¼ä
+	 * è·å–ç¨‹åºè¿è¡Œæ—¶é—´
 	 * 
-	 * @return ³ÌĞòÔËĞĞÊ±¼ä
+	 * @return ç¨‹åºè¿è¡Œæ—¶é—´
 	 */
 	public long getTimeConsum() {
 		return this.TimeConsum;
