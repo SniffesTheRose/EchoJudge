@@ -209,7 +209,7 @@ public class CppJudger extends Judger {
 					}
 				}
 			}.start();
-			
+
 			new Thread() {
 				@Override
 				public void run() {
@@ -337,7 +337,7 @@ public class CppJudger extends Judger {
 		} catch (IOException | InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			
+
 			ret.setSPJ(false, null, 0);
 		}
 
