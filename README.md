@@ -21,7 +21,7 @@ JudgingSystem 提供了适用于 NOI(National Olympiad in Informatics) 系列比
 请在程序开始时请使用下列方法导入动态库
 
 	SystemTools.prestrain();
-
-详情使用方法参阅 doc 文档
+ 
+详情请参阅 doc 文档
 
 [JudgingSystem DOC 文档](https://sniffestherose.github.io/JudgingSystem/doc/index.html)
