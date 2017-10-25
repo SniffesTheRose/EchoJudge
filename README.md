@@ -1,8 +1,7 @@
-# JudgingSystem v1.1.0_Alpha
+# JudgingSystem v1.2.0_Alpha
 
 ------
-JudgingSystem 提供了适用于 NOI(National Olympiad in Informatics) 系列比赛测评机评测方式，通过导入 JudgingSystem 你可以方便的编写出一个评测环境
-
+JudgingSystem 提供了适用于 NOI(National Olympiad in Informatics) 系列比赛测评机评测环境，并支持交互题目测评，通过导入 JudgingSystem 你可以方便的编写出一个评测环境
 
 ----------
 ## 下载地址 
@@ -11,7 +10,7 @@ JudgingSystem 提供了适用于 NOI(National Olympiad in Informatics) 系列比
 ----------
 ## 警告
 
-**v1.1.0_Alpha 版本只提供对 c++ 程序的编译与测评**
+- **v1.2.0_Alpha 版本只提供对 c++ 程序的编译与测评**
 
 ----------
 
