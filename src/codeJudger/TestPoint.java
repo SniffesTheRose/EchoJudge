@@ -27,6 +27,7 @@ public class TestPoint {
 
 	private String Test_In = null;// 测试点输入文件路径
 	private String Test_Out = null;// 测试点输出文件路径
+	private String CustomVerifier_In = null;// 自定义答案校验器输入文件路径
 
 	private int JudgeMod;
 
@@ -107,6 +108,59 @@ public class TestPoint {
 		this.Score = Score;
 		this.Test_In = Test_In;
 		this.Test_Out = Test_Out;
+	}
+
+	/**
+	 * 通过时间限制，内存限制，测试点分值，输入文件位置构造测试点对象 (默认使用自定义答案校验器比较答案)
+	 * 
+	 * @param Time_Limit
+	 *            时间限制
+	 * @param Memory_Limit
+	 *            内存限制
+	 * @param Score
+	 *            测试点分值
+	 * @param Test_In
+	 *            输入文件位置
+	 */
+	public TestPoint(long Time_Limit, long Memory_Limit, long Score, String Test_In) {
+		this.Time_Limit = Time_Limit;
+		this.Memory_Limit = Memory_Limit;
+		this.Score = Score;
+		this.Test_In = Test_In;
+		this.JudgeMod = TestPoint.CustomVerifier;
+	}
+
+	/**
+	 * 通过时间限制，内存限制，测试点分值，输入文件位置，自定义答案校验器输入文件位置构造测试点对象 (默认使用自定义答案校验器比较答案)
+	 * 
+	 * @param Time_Limit
+	 *            时间限制
+	 * @param Memory_Limit
+	 *            内存限制
+	 * @param Score
+	 *            测试点分值
+	 * @param Test_In
+	 *            输入文件位置
+	 * @param CustomVerifier_In
+	 *            自定义答案校验器输入文件位置
+	 */
+	public TestPoint(long Time_Limit, long Memory_Limit, long Score, String Test_In, String CustomVerifier_In) {
+		this.Time_Limit = Time_Limit;
+		this.Memory_Limit = Memory_Limit;
+		this.Score = Score;
+		this.Test_In = Test_In;
+		this.CustomVerifier_In = CustomVerifier_In;
+		this.JudgeMod = TestPoint.CustomVerifier;
+	}
+
+	/**
+	 * 设置自定义答案校验器文件路径
+	 * 
+	 * @param CustomVerifier_In
+	 *            自定义答案校验器文件路径
+	 */
+	public void setCustomVerifier_In(String CustomVerifier_In) {
+		this.CustomVerifier_In = CustomVerifier_In;
 	}
 
 	/**
@@ -221,6 +275,15 @@ public class TestPoint {
 	 */
 	public int getJudgeMod() {
 		return this.JudgeMod;
+	}
+
+	/**
+	 * 获取自定义答案校验器输入路径
+	 * 
+	 * @return 获取自定义答案校验器输入路径
+	 */
+	public String getCustomVerifier_In() {
+		return this.CustomVerifier_In;
 	}
 
 }
