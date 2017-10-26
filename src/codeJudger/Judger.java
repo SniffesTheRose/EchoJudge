@@ -4,6 +4,12 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+/**
+ * 所有代码评测类均继承与此类
+ * 
+ * @author STR
+ *
+ */
 public abstract class Judger {
 
 	/**
