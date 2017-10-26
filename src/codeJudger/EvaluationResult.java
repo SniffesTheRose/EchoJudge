@@ -41,9 +41,9 @@ public class EvaluationResult {
 	 */
 	public static final int Unknown_Error = 8;
 
-	private boolean CustomVerifier;// 是否使用SPJ
-	private String CustomVerifierRet; // SPJ返回提示
-	private long CustomVerifierScore;// SPJ得分
+	private boolean CustomVerifier; // 是否使用自定义答案校验器
+	private String CustomVerifierRet; // 自定义答案校验器返回提示
+	private long CustomVerifierScore; // 自定义答案校验器得分
 
 	private int value;// 答案状态
 
