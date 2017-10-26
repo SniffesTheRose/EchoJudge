@@ -16,6 +16,10 @@ public class TestPoint {
 	 * 忽略空行以及行末空格比较方式
 	 */
 	public static final int Ignore_Space = 2;
+	/**
+	 * 通过自定义答案校验器比较
+	 */
+	public static final int CustomVerifier = 3;
 
 	private long Time_Limit; // 时间限制
 	private long Memory_Limit; // 内存限制
