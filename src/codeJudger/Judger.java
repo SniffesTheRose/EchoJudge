@@ -5,7 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 /**
- * 所有代码评测类均继承与此类
+ * 代码评测类
  * 
  * @author STR
  *

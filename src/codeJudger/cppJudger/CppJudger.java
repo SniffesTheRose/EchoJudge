@@ -178,7 +178,7 @@ public class CppJudger extends Judger {
 
 						ret.SetValue(EvaluationResult.System_Error);
 						ret.setTimeConsum(System.currentTimeMillis() - begin);
-						ret.setSPJ(false, null, 0);
+						ret.setCustomVerifier(false, null, 0);
 
 						return;
 					}
@@ -203,7 +203,7 @@ public class CppJudger extends Judger {
 
 						ret.SetValue(EvaluationResult.System_Error);
 						ret.setTimeConsum(System.currentTimeMillis() - begin);
-						ret.setSPJ(false, null, 0);
+						ret.setCustomVerifier(false, null, 0);
 
 						return;
 					}
@@ -230,7 +230,7 @@ public class CppJudger extends Judger {
 
 						ret.SetValue(EvaluationResult.System_Error);
 						ret.setTimeConsum(System.currentTimeMillis() - begin);
-						ret.setSPJ(false, null, 0);
+						ret.setCustomVerifier(false, null, 0);
 
 						return;
 					}
@@ -255,7 +255,7 @@ public class CppJudger extends Judger {
 
 								ret.SetValue(EvaluationResult.Memory_Exceeded);
 								ret.setTimeConsum(System.currentTimeMillis() - begin);
-								ret.setSPJ(false, null, 0);
+								ret.setCustomVerifier(false, null, 0);
 
 								return;
 							}
@@ -267,7 +267,7 @@ public class CppJudger extends Judger {
 
 							ret.SetValue(EvaluationResult.System_Error);
 							ret.setTimeConsum(System.currentTimeMillis() - begin);
-							ret.setSPJ(false, null, 0);
+							ret.setCustomVerifier(false, null, 0);
 
 							return;
 						}
@@ -289,7 +289,7 @@ public class CppJudger extends Judger {
 
 						ret.SetValue(EvaluationResult.System_Error);
 						ret.setTimeConsum(System.currentTimeMillis() - begin);
-						ret.setSPJ(false, null, 0);
+						ret.setCustomVerifier(false, null, 0);
 
 						return;
 					}
@@ -298,7 +298,7 @@ public class CppJudger extends Judger {
 						inte.destroy();
 
 						ret.SetValue(EvaluationResult.System_Error);
-						ret.setSPJ(false, null, 0);
+						ret.setCustomVerifier(false, null, 0);
 
 						return;
 					}
@@ -316,7 +316,7 @@ public class CppJudger extends Judger {
 
 			if (!new File(Score_File).exists() || !new File(Error_File).exists()) {
 				ret.SetValue(EvaluationResult.System_Error);
-				ret.setSPJ(false, null, 0);
+				ret.setCustomVerifier(false, null, 0);
 
 				return ret;
 			}
@@ -330,7 +330,7 @@ public class CppJudger extends Judger {
 			while ((temp = error_Reader.readLine()) != null)
 				error += temp + "\n";
 
-			ret.setSPJ(true, error.equals("") ? null : error, Long.parseLong(score_Reader.readLine()));
+			ret.setCustomVerifier(true, error.equals("") ? null : error, Long.parseLong(score_Reader.readLine()));
 
 			error_Reader.close();
 			score_Reader.close();
@@ -338,7 +338,7 @@ public class CppJudger extends Judger {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 
-			ret.setSPJ(false, null, 0);
+			ret.setCustomVerifier(false, null, 0);
 		}
 
 		return ret;

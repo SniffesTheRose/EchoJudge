@@ -41,9 +41,9 @@ public class EvaluationResult {
 	 */
 	public static final int Unknown_Error = 8;
 
-	private String SPJ_ret; // SPJ返回提示
-	private boolean SPJ;// 是否使用SPJ
-	private long SPJ_Score;// SPJ得分
+	private boolean CustomVerifier;// 是否使用SPJ
+	private String CustomVerifierRet; // SPJ返回提示
+	private long CustomVerifierScore;// SPJ得分
 
 	private int value;// 答案状态
 
@@ -55,7 +55,7 @@ public class EvaluationResult {
 	 */
 	public EvaluationResult() {
 		value = EvaluationResult.Unknown_Error;
-		SPJ = false;
+		CustomVerifier = false;
 	}
 
 	/**
@@ -69,22 +69,22 @@ public class EvaluationResult {
 	}
 
 	/**
-	 * 构造一个指定SPJ的初始答案
+	 * 构造一个自定义答案校验器的初始答案
 	 * 
 	 * @param value
 	 *            测评结果类型
-	 * @param SPJ
-	 *            是否使用SPJ
-	 * @param SPJ_ret
-	 *            SPJ提示信息
-	 * @param SPJ_Score
-	 *            SPJ得分
+	 * @param CustomVerifier
+	 *            是否使用自定义答案校验器
+	 * @param CustomVerifierRet
+	 *            自定义答案校验器提示信息
+	 * @param CustomVerifierScore
+	 *            自定义答案校验器得分
 	 */
-	public EvaluationResult(int value, boolean SPJ, String SPJ_ret, long SPJ_Score) {
+	public EvaluationResult(int value, boolean CustomVerifier, String CustomVerifierRet, long CustomVerifierScore) {
 		this.value = value;
-		this.SPJ_ret = SPJ_ret;
-		this.SPJ = SPJ;
-		this.SPJ_Score = SPJ_Score;
+		this.CustomVerifierRet = CustomVerifierRet;
+		this.CustomVerifier = CustomVerifier;
+		this.CustomVerifierScore = CustomVerifierScore;
 	}
 
 	/**
@@ -118,19 +118,19 @@ public class EvaluationResult {
 	}
 
 	/**
-	 * 设置SPJ信息
+	 * 设置定义答案校验器信息
 	 * 
-	 * @param SPJ
-	 *            是否使用SPJ
-	 * @param SPJ_ret
-	 *            SPJ提示信息
-	 * @param SPJ_Score
-	 *            SPJ得分
+	 * @param CustomVerifier
+	 *            是否使用自定义答案校验器
+	 * @param CustomVerifierRet
+	 *            自定义答案校验器提示信息
+	 * @param CustomVerifierScore
+	 *            自定义答案校验器得分
 	 */
-	public void setSPJ(boolean SPJ, String SPJ_ret, long SPJ_Score) {
-		this.SPJ_ret = SPJ_ret;
-		this.SPJ = SPJ;
-		this.SPJ_Score = SPJ_Score;
+	public void setCustomVerifier(boolean CustomVerifier, String CustomVerifierRet, long CustomVerifierScore) {
+		this.CustomVerifierRet = CustomVerifierRet;
+		this.CustomVerifier = CustomVerifier;
+		this.CustomVerifierScore = CustomVerifierScore;
 	}
 
 	/**
@@ -143,30 +143,30 @@ public class EvaluationResult {
 	}
 
 	/**
-	 * 获得SPJ使用情况
+	 * 获得自定义答案校验器使用情况
 	 * 
-	 * @return 是否使用SPJ
+	 * @return 是否使用自定义答案校验器
 	 */
-	public boolean getSPJ() {
-		return this.SPJ;
+	public boolean getCustomVerifier() {
+		return this.CustomVerifier;
 	}
 
 	/**
-	 * 获得SPJ提示信息
+	 * 获得自定义答案校验器提示信息
 	 * 
-	 * @return SPJ提示信息
+	 * @return 自定义答案校验器提示信息
 	 */
-	public String getSPJ_ret() {
-		return this.SPJ_ret;
+	public String getCustomVerifierRet() {
+		return this.CustomVerifierRet;
 	}
 
 	/**
-	 * 获得SPJ得分
+	 * 获得自定义答案校验器得分
 	 * 
-	 * @return SPJ得分
+	 * @return 自定义答案校验器得分
 	 */
-	public long getSPJ_Score() {
-		return this.SPJ_Score;
+	public long getCustomVerifierScore() {
+		return this.CustomVerifierScore;
 	}
 
 	/**
