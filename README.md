@@ -115,6 +115,10 @@ result.getCustomVerifier();//当使用自定义校验器是返回 true 否则返
 
 
 
+自定义交互器的编写请参阅 [自定义答案校验器使用文档](https://sniffestherose.github.io/JudgingSystem/Echo%20Judge%20%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AD%94%E6%A1%88%E6%A0%A1%E9%AA%8C%E5%99%A8%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E)
+
+
+
 ------
 
 ## 下载与安装
