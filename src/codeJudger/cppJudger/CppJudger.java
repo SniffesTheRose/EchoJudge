@@ -52,7 +52,7 @@ public class CppJudger extends Judger {
 		while ((line = input.readLine()) != null)
 			res += line + '\n';
 
-		return res == "" ? (process.exitValue() == 0 ? null : "编译超时") + "" : res;
+		return res.equals("") ? (process.exitValue() == 0 ? null : "编译超时") : res;
 	}
 
 	@Override
@@ -159,9 +159,8 @@ public class CppJudger extends Judger {
 
 			long begin = System.currentTimeMillis();
 			Process inte = Runtime.getRuntime()
-					.exec("\"" + inte_File + "\" \"" + std.getTest_In() + "\" \"" + std.getCustomVerifier_In()
-							+ "\" \"" + std.getScore() + "\" \"" + Score_File + "\" \"" + Error_File
-							+ "\" ");
+					.exec("\"" + inte_File + "\" \"" + std.getTest_In() + "\" \"" + std.getCustomVerifier_In() + "\" \""
+							+ std.getScore() + "\" \"" + Score_File + "\" \"" + Error_File + "\" ");
 
 			new Thread() {
 				@Override
