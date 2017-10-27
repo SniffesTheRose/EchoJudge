@@ -155,6 +155,10 @@ public abstract class Judger {
 	 *            临时输出文件目录
 	 * @param result
 	 *            运行时得到的测评结果
+	 * @param Score_File
+	 *            最终得分目录
+	 * @param Error_File
+	 *            错误报告目录
 	 * @return 答案比较结果
 	 */
 	public static EvaluationResult specialResultComparison(TestPoint std, String SPJ_File, String tempOutputFile,

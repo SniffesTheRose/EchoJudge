@@ -19,6 +19,104 @@ JudgingSystem 目前仍在测试中，若您在使用中遇到问题，请联系
 
 ----------
 
+## 使用说明
+
+
+
+您可以使用以下语句编译指定文件
+
+``` java
+judger.compile("(String) g++目录(以exe结尾)", "(String) 编译文件目录", "(String) 可执行文件目录");
+```
+
+
+
+您可以使用如下语句构造一个测试节点
+
+``` java
+TestPoint point = new TestPoint("(long) 测试点时限", "(long) 测试点内存限制", "(long) 测试点分值", TestPoint.Ignore_Space, "(String) 输入文件目录", "(String) 输出文件目录");
+```
+
+
+
+当然，我们也提供其他构造节点的方法，您可以阅读 [Doc文档](https://sniffestherose.github.io/JudgingSystem/doc/index.html?constant-values.html) 来了解他们
+
+
+
+当您成功构造一个测试节点后，您可以使用如下语句进行传统程序测试
+
+``` java
+EvaluationResult result = judger.simply_Runner("(TestPoint) 测试点信息", "(String) 程序目录", "(String) 临时选手输出文件目录");//通过传统方法运行程序
+		
+EvaluationResult result = Judger.simplyResultComparison("(TestPoint) 测试点信息", "(String) 临时选手输出文件目录", "(EvaluationResult) 选手程序运行结果");//通过传统方法比较答案
+```
+
+
+
+当程序测试结束之后，您可以通过以下方法获取程序运行情况
+
+``` java
+result.getMaxMemory();//获取程序运行中使用的最大内存
+result.getTimeConsum();//获取程序运行耗时
+result.getValue();//获取程序运行结果
+```
+
+程序运行结果将返回一个 EvaluationResult 类的常量，对应结果信息请参阅 [Doc文档](https://sniffestherose.github.io/JudgingSystem/doc/constant-values.html#codeJudger.EvaluationResult.Accepted) 来了解他们
+
+
+
+您可以通过如下语句进行 Special Judge 测试
+
+``` java
+EvaluationResult result = judger.simply_Runner("(TestPoint) 测试点信息", "(String) 程序目录", "(String) 临时选手输出文件目录");//通过传统方法运行程序
+		
+result = Judger.specialResultComparison("(TestPoint) 测试点信息", "(String) SPJ程序目录", "(String) 临时选手输出文件目录", "(EvaluationResult) 选手程序运行结果", "(String) 得分目录", "(String) 错误报告目录");
+```
+
+
+
+当程序测试结束之后，您可以通过以下方法获取程序运行情况
+
+``` java
+result.getCustomVerifierRet();//获取 SPJ 得分
+result.getCustomVerifierScore();// 获取 SPJ 返回的错误报告
+result.getMaxMemory();//获取程序运行中使用的最大内存
+result.getTimeConsum();//获取程序运行耗时
+```
+
+
+
+您也可以通过如下语句进行 交互 测试
+
+
+
+```java
+EvaluationResult result = judger.interact_Runner("(TestPoint) 测试点信息", "(String) 程序目录", "(String) 交互器程序目录", "(String) 得分目录", "(String) 错误报告目录");
+```
+
+
+
+当程序测试结束之后，您可以通过以下方法获取程序运行情况
+
+```java
+result.getCustomVerifierRet();//获取 交互 得分
+result.getCustomVerifierScore();// 获取 交互 返回的错误报告
+result.getMaxMemory();//获取程序运行中使用的最大内存
+result.getTimeConsum();//获取程序运行耗时
+```
+
+
+
+若通过自定义校验器进行测试时选手程序超时、超过内存限制或系统错误，测试结果将是一个传统型结果，您可以通过以下语句判断测试结果是否为 自定义校验器测试结果
+
+```java
+result.getCustomVerifier();//当使用自定义校验器是返回 true 否则返回 false
+```
+
+
+
+------
+
 ## 下载与安装
 
 您可以下载 JudgingSystem.jar 并导入到您的工程，SystemTools.dll 请放置于程序根目录
@@ -26,7 +124,7 @@ JudgingSystem 目前仍在测试中，若您在使用中遇到问题，请联系
 请在程序开始时请使用下列方法导入动态库
 
 	SystemTools.prestrain();
- 
+
 ### 详情请参阅 doc 文档
 
 [JudgingSystem DOC 文档](https://sniffestherose.github.io/JudgingSystem/doc/index.html)
