@@ -1,16 +1,16 @@
-# JudgingSystem Alpha
+# Echo Judge Alpha
 
 ------
-JudgingSystem 提供了适用于 NOI，ACM 系列比赛测评机评测环境，并支持交互题目测评，通过导入 JudgingSystem 您可以方便的编写出一个评测环境
+Echo Judge 提供了适用于 NOI，ACM 系列比赛测评机评测环境，并支持交互题目测评，通过导入 Echo Judge 您可以方便的编写出一个评测环境
 
-JudgingSystem 目前仍在测试中，若您在使用中遇到问题，请联系开发者
+Echo Judge 目前仍在测试中，若您在使用中遇到问题，请联系开发者
 
 由于一些特殊原因，于  **2017.10.25** 日及之前更新的版本号错误,我们将不再提供 **v0.1.1_Alpha** 及之前版本的下载方式。
 具体版本号请参见下方的 **发布公告**
 
 ----------
 ## 发布公告及下载地址
-**[https://github.com/SniffesTheRose/JudgingSystem/releases](https://github.com/SniffesTheRose/JudgingSystem/releases "下载链接")**
+[https://github.com/SniffesTheRose/EchoJudge/releases](https://github.com/SniffesTheRose/EchoJudge/releases "下载链接")
 
 ----------
 ## 警告
@@ -115,7 +115,7 @@ result.getCustomVerifier();//当使用自定义校验器是返回 true 否则返
 
 
 
-自定义交互器的编写请参阅 [自定义答案校验器使用文档](https://sniffestherose.github.io/JudgingSystem/Echo%20Judge%20%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AD%94%E6%A1%88%E6%A0%A1%E9%AA%8C%E5%99%A8%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E)
+自定义交互器的编写请参阅 [自定义答案校验器使用文档](https://sniffestherose.github.io/EchoJudge/Echo%20Judge%20%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AD%94%E6%A1%88%E6%A0%A1%E9%AA%8C%E5%99%A8%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E)
 
 
 
@@ -131,4 +131,4 @@ result.getCustomVerifier();//当使用自定义校验器是返回 true 否则返
 
 ### 详情请参阅 doc 文档
 
-[JudgingSystem DOC 文档](https://sniffestherose.github.io/JudgingSystem/doc/index.html)
+[JudgingSystem DOC 文档](https://sniffestherose.github.io/EchoJudge/doc/index.html)
