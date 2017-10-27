@@ -3,7 +3,7 @@ package codeJudger;
 /**
  * 答案信息
  * 
- * @author lenovo
+ * @author STR
  *
  */
 public class EvaluationResult {

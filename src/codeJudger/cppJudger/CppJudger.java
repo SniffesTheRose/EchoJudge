@@ -159,8 +159,9 @@ public class CppJudger extends Judger {
 
 			long begin = System.currentTimeMillis();
 			Process inte = Runtime.getRuntime()
-					.exec("\"" + inte_File + "\" \"" + std.getTest_In() + "\" \"" + std.getCustomVerifier_In() + "JudgingSystem.jar\" \""
-							+ std.getScore() + "\" \"" + Score_File + "\" \"" + Error_File + "\" ");
+					.exec("\"" + inte_File + "\" \"" + std.getTest_In() + "\" \"" + std.getCustomVerifier_In()
+							+ "JudgingSystem.jar\" \"" + std.getScore() + "\" \"" + Score_File + "\" \"" + Error_File
+							+ "\" ");
 
 			new Thread() {
 				@Override
@@ -344,4 +345,5 @@ public class CppJudger extends Judger {
 
 		return ret;
 	}
+
 }

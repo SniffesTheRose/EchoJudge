@@ -72,7 +72,8 @@ public abstract class Judger {
 	 *            运行时得到的评测结果
 	 * @return 答案比较结果
 	 */
-	public static EvaluationResult resultComparison(TestPoint std, String tempOutputFile, EvaluationResult result) {
+	public static EvaluationResult simplyResultComparison(TestPoint std, String tempOutputFile,
+			EvaluationResult result) {
 		if (result.getValue() != EvaluationResult.Unknown_Error)
 			return result;
 
@@ -143,4 +144,59 @@ public abstract class Judger {
 		return result;
 	}
 
+	/**
+	 * Special Judge
+	 * 
+	 * @param std
+	 *            测试点信息
+	 * @param SPJ_File
+	 *            SPJ文件目录
+	 * @param tempOutputFile
+	 *            临时输出文件目录
+	 * @param result
+	 *            运行时得到的测评结果
+	 * @return 答案比较结果
+	 */
+	public static EvaluationResult specialResultComparison(TestPoint std, String SPJ_File, String tempOutputFile,
+			EvaluationResult result, String Score_File, String Error_File) {
+		try {
+			Process process = Runtime.getRuntime()
+					.exec("\"" + SPJ_File + "\" \"" + std.getTest_In() + "\" \"" + tempOutputFile + "\" \""
+							+ std.getTest_Out() + "\" \"" + std.getScore() + "\" \"" + Score_File + "\" \"" + Error_File
+							+ "\" ");
+
+			long begin = System.currentTimeMillis();
+			new Thread() {
+				public void run() {
+					try {
+						while (process.isAlive() && System.currentTimeMillis() - begin <= 5000)
+							Thread.sleep(10);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+						result.SetValue(EvaluationResult.System_Error);
+						return;
+					}
+				}
+			}.start();
+
+			String temp = null;
+			String Error = "";
+
+			BufferedReader score_Reader = new BufferedReader(new FileReader(Score_File));
+			BufferedReader error_Reader = new BufferedReader(new FileReader(Error_File));
+
+			while ((temp = error_Reader.readLine()) != null)
+				Error += temp + "\n";
+
+			result.setCustomVerifier(true, Error.equals("") ? null : Error, Long.parseLong(score_Reader.readLine()));
+
+			error_Reader.close();
+			score_Reader.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
 }
