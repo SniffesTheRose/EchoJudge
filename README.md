@@ -123,7 +123,7 @@ result.getCustomVerifier();//当使用自定义校验器是返回 true 否则返
 
 ## 下载与安装
 
-您可以下载 JudgingSystem.jar 并导入到您的工程，SystemTools.dll 请放置于程序根目录
+您可以下载 EchoJudge.jar 并导入到您的工程，SystemTools.dll 请放置于程序根目录
 
 请在程序开始时请使用下列方法导入动态库
 
@@ -131,4 +131,4 @@ result.getCustomVerifier();//当使用自定义校验器是返回 true 否则返
 
 ### 详情请参阅 doc 文档
 
-[JudgingSystem DOC 文档](https://sniffestherose.github.io/EchoJudge/doc/index.html)
+[Echo Judge DOC 文档](https://sniffestherose.github.io/EchoJudge/doc/index.html)
