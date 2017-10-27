@@ -1,6 +1,8 @@
 # Echo Judge Alpha
 
 ------
+[![Join the chat at https://gitter.im/{ORG-or-USERNAME}/{REPO-NAME}](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/EchoJudge/Lobby?utm_source=share-link&utm_medium=link&utm_campaign=share-link)
+
 Echo Judge 提供了适用于 NOI，ACM 系列比赛测评机评测环境，并支持交互题目测评，通过导入 Echo Judge 您可以方便的编写出一个评测环境
 
 Echo Judge 目前仍在测试中，若您在使用中遇到问题，请联系开发者
@@ -39,7 +41,7 @@ TestPoint point = new TestPoint("(long) 测试点时限", "(long) 测试点内�
 
 
 
-当然，我们也提供其他构造节点的方法，您可以阅读 [Doc文档](https://sniffestherose.github.io/JudgingSystem/doc/index.html?constant-values.html) 来了解他们
+当然，我们也提供其他构造节点的方法，您可以阅读 [Doc文档](https://sniffestherose.github.io/EchoJudge/doc/codeJudger/TestPoint.html) 来了解他们
 
 
 
@@ -61,7 +63,7 @@ result.getTimeConsum();//获取程序运行耗时
 result.getValue();//获取程序运行结果
 ```
 
-程序运行结果将返回一个 EvaluationResult 类的常量，对应结果信息请参阅 [Doc文档](https://sniffestherose.github.io/JudgingSystem/doc/constant-values.html#codeJudger.EvaluationResult.Accepted) 来了解他们
+程序运行结果将返回一个 EvaluationResult 类的常量，对应结果信息请参阅 [Doc文档](https://sniffestherose.github.io/EchoJudge/doc/constant-values.html#codeJudger.EvaluationResult.Accepted) 来了解他们
 
 
 
