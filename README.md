@@ -134,6 +134,4 @@ result.getCustomVerifier();//当使用自定义校验器是返回 true 否则返
 
 ### 详情请参阅 doc 文档
 
-[Echo Judge DOC 文档](https://sniffestherose.github.io/EchoJudge/doc/index.html)
-
-### GTMD Luogu
+[Echo Judge DOC 文档](https://sniffestherose.github.io/EchoJudge/doc/index.html) 
