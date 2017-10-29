@@ -1,4 +1,4 @@
-package codeJudger.cppJudger;
+package codeJudger.pascalJudger;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -10,18 +10,18 @@ import codeJudger.Judger;
 import codeJudger.TestPoint;
 
 /**
- * C++评测
+ * Pascal测评
  * 
  * @author STR
  *
  */
-public class CppJudger extends Judger {
+public class PascalJudger extends Judger {
 
 	@Override
 	public String compile(String compile_File, String fileName, String outPutFile)
 			throws IOException, InterruptedException {
 		// TODO Auto-generated method stub
-		return Judger.compile("\"" + compile_File + "\" \"" + fileName + "\" -o \"" + outPutFile + "\"");
+		return Judger.compile("\"" + compile_File + "\" \"" + fileName + "\" -o\"" + outPutFile + "\"");
 	}
 
 	@Override
