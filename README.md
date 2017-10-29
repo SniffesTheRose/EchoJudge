@@ -15,14 +15,17 @@ Echo Judge 目前仍在测试中，若您在使用中遇到问题，请联系开
 ## 发布公告及下载地址
 [https://github.com/SniffesTheRose/EchoJudge/releases](https://github.com/SniffesTheRose/EchoJudge/releases "下载链接")
 
-----------
-## 警告
 
-- **当前版本只提供对 C++ 程序的编译与测评**
 
 ----------
 
 ## 使用说明
+
+
+
+我们提供了 C++ 和 Pascal 测评方法
+
+编译以及评测 其他程序请扩展编译命令
 
 
 
