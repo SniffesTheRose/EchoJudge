@@ -175,6 +175,7 @@ public abstract class Judger {
 
 			long begin = System.currentTimeMillis();
 			new Thread() {
+				@Override
 				public void run() {
 					try {
 						while (process.isAlive() && System.currentTimeMillis() - begin <= 5000)
