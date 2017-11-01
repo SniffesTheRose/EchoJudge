@@ -271,7 +271,7 @@ public abstract class Judger {
 
 		try {
 
-			String[] cmds = new String[] { "cmd.exe", "/c", cmd };
+			String[] cmds = new String[] { SystemTools.getShell(), "/c", cmd };
 
 			Process process = Runtime.getRuntime().exec(cmds);
 

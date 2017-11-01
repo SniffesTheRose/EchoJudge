@@ -4,7 +4,7 @@
 
 ------
 
-Echo Judge 提供了 Windows 系统下适用于 NOI，ACM 系列比赛测评机评测环境，并支持交互题目测评，通过导入 Echo Judge 您可以方便的编写出一个评测环境
+Echo Judge 提供了适用于 NOI，ACM 系列比赛测评机评测环境，并支持交互题目测评，通过导入 Echo Judge 您可以方便的编写出一个评测环境
 
 Echo Judge 目前仍在测试中，若您在使用中遇到问题，请联系开发者
 
