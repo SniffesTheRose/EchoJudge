@@ -230,10 +230,12 @@ public abstract class Judger {
 					for (int i = 1; i <= 10 && process.isAlive(); i++)
 						Thread.sleep(1000);
 
-					process.destroy();
-				} catch (InterruptedException e) {
+					SystemTools.taskKill(process);
+				} catch (InterruptedException | IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
+
+					return;
 				}
 			}
 		}.start();
@@ -288,7 +290,7 @@ public abstract class Judger {
 								ret.setMaxMemory(memory);
 
 							if (memory > std.getMemory_Limit() * 1024 * 1024) {
-								process.destroy();
+								SystemTools.taskKill(process);
 
 								ret.SetValue(EvaluationResult.Memory_Exceeded);
 								ret.setTimeConsum(System.currentTimeMillis() - begin);
@@ -312,7 +314,12 @@ public abstract class Judger {
 						ret.SetValue(EvaluationResult.Time_Exceeded);
 						ret.setTimeConsum(System.currentTimeMillis() - begin);
 
-						process.destroy();
+						try {
+							SystemTools.taskKill(process);
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 					}
 				}
 			}.start();
@@ -432,11 +439,11 @@ public abstract class Judger {
 
 						while (inte.isAlive() && (temp = read.readLine()) != null) {
 							if (temp.trim().equals("System_Shutdown"))
-								player.destroy();
+								SystemTools.taskKill(player);
 						}
 
 						if (player.isAlive())
-							player.destroy();
+							SystemTools.taskKill(player);
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -464,7 +471,7 @@ public abstract class Judger {
 								ret.setMaxMemory(memory);
 
 							if (memory > std.getMemory_Limit() * 1024 * 1024) {
-								player.destroy();
+								SystemTools.taskKill(player);
 
 								ret.SetValue(EvaluationResult.Memory_Exceeded);
 								ret.setTimeConsum(System.currentTimeMillis() - begin);
@@ -490,7 +497,18 @@ public abstract class Judger {
 						ret.SetValue(EvaluationResult.Time_Exceeded);
 						ret.setTimeConsum(System.currentTimeMillis() - begin);
 
-						player.destroy();
+						try {
+							SystemTools.taskKill(player);
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+
+							ret.SetValue(EvaluationResult.System_Error);
+							ret.setTimeConsum(System.currentTimeMillis() - begin);
+							ret.setCustomVerifier(false, null, 0);
+
+							return;
+						}
 					}
 
 					try {
@@ -508,7 +526,18 @@ public abstract class Judger {
 					}
 
 					if (inte.isAlive()) {
-						inte.destroy();
+						try {
+							SystemTools.taskKill(inte);
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+
+							ret.SetValue(EvaluationResult.System_Error);
+							ret.setTimeConsum(System.currentTimeMillis() - begin);
+							ret.setCustomVerifier(false, null, 0);
+
+							return;
+						}
 
 						ret.SetValue(EvaluationResult.System_Error);
 						ret.setCustomVerifier(false, null, 0);
