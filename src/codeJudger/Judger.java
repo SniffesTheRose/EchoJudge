@@ -328,10 +328,10 @@ public abstract class Judger {
 
 			process.waitFor();
 
-			ret.setTimeConsum(System.currentTimeMillis() - begin);
-
 			if (ret.getValue() != EvaluationResult.Unknown_Error)
 				return ret;
+
+			ret.setTimeConsum(System.currentTimeMillis() - begin);
 
 			if (process.exitValue() != 0) {
 				ret.SetValue(EvaluationResult.Runtime_Error);
@@ -551,14 +551,17 @@ public abstract class Judger {
 
 			player.waitFor();
 
-			ret.setTimeConsum(System.currentTimeMillis() - begin);
+			if (ret.getTimeConsum() == 0)
+				ret.setTimeConsum(System.currentTimeMillis() - begin);
 
 			inte.waitFor();
+
 			return ret;
 		} catch (IOException | InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 
+			ret.SetValue(EvaluationResult.System_Error);
 			ret.setCustomVerifier(false, null, 0);
 		}
 

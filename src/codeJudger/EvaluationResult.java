@@ -56,6 +56,7 @@ public class EvaluationResult {
 	public EvaluationResult() {
 		value = EvaluationResult.Unknown_Error;
 		CustomVerifier = false;
+		this.TimeConsum = 0;
 	}
 
 	/**
@@ -66,6 +67,7 @@ public class EvaluationResult {
 	 */
 	public EvaluationResult(int value) {
 		this.value = value;
+		this.TimeConsum = 0;
 	}
 
 	/**
@@ -85,6 +87,7 @@ public class EvaluationResult {
 		this.CustomVerifierRet = CustomVerifierRet;
 		this.CustomVerifier = CustomVerifier;
 		this.CustomVerifierScore = CustomVerifierScore;
+		this.TimeConsum = 0;
 	}
 
 	/**
