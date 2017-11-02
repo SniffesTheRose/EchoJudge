@@ -18,10 +18,15 @@ import codeJudger.TestPoint;
 public class CppJudger extends Judger {
 
 	@Override
-	public String compile(String compile_File, String fileName, String outPutFile)
+	public String compile(String compile_File, String fileName, String outPutFile, String... supplements)
 			throws IOException, InterruptedException {
 		// TODO Auto-generated method stub
-		return Judger.compile("\"" + compile_File + "\" \"" + fileName + "\" -o \"" + outPutFile + "\"");
+		String cmds = "\"" + compile_File + "\" \"" + fileName + "\" -o \"" + outPutFile + "\" ";
+
+		for (int i = 0; i < supplements.length; i++)
+			cmds += supplements[i] + " ";
+
+		return Judger.compile(cmds);
 	}
 
 	@Override

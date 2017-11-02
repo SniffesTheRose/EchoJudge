@@ -25,13 +25,15 @@ public abstract class Judger {
 	 *            文件名称
 	 * @param outPutFile
 	 *            输出目录
+	 * @param supplements
+	 *            追加命令,多个命令之间自动空格分割
 	 * @return 编译信息
 	 * @throws IOException
 	 *             编译错误
 	 * @throws InterruptedException
 	 *             系统异常
 	 */
-	public abstract String compile(String compile_File, String fileName, String outPutFile)
+	public abstract String compile(String compile_File, String fileName, String outPutFile, String... supplements)
 			throws IOException, InterruptedException;
 
 	/**
