@@ -2,7 +2,9 @@
 
 <style>
   .page-header{
-  background-image:url(https://blog.zhangone.top/static/img/ac1b312bd67a3c3a5b9875212640c965.jpg);
+    background-image:url(https://blog.zhangone.top/static/img/ac1b312bd67a3c3a5b9875212640c965.jpg);
+    background-size: cover;
+    background-position: center;
   }
 </style>
 ------
