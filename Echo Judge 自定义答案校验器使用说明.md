@@ -2,7 +2,7 @@
 
 <style>
   .page-header{
-    background-image:url(doc/images/BackGround.png);
+    background-image:url(doc/images/BackGround.jpg);
     background-size: cover;
     background-position: center;
   }
