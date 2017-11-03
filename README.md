@@ -2,6 +2,9 @@
 
 [![Join the chat at https://gitter.im/{ORG-or-USERNAME}/{REPO-NAME}](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/EchoJudge/Lobby?utm_source=share-link&utm_medium=link&utm_campaign=share-link)
 
+您同样可以通过 Github Pages 阅读本篇文档
+[https://sniffestherose.github.io/EchoJudge](https://sniffestherose.github.io/EchoJudge)
+
 ------
 
 Echo Judge 提供了适用于 NOI，ACM 系列比赛测评机评测环境，并支持交互题目测评，通过导入 Echo Judge 您可以方便的编写出一个评测环境
