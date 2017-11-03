@@ -1,6 +1,7 @@
+group: Echo
+
 os: windows
 
 language: java
 
-jdk:
-  - oraclejdk8 
+jdk: jdk8
