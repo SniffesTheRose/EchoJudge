@@ -1,7 +1,10 @@
 # Echo Judge 自定义答案校验器使用说明
 
-
-
+<style>
+  .page-header{
+  background-img:url(/static/img/ac1b312bd67a3c3a5b9875212640c965.jpg);
+  }
+</style>
 ------
 
 
