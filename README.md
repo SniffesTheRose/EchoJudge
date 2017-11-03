@@ -1,4 +1,4 @@
-# Echo Judge Alpha
+﻿# Echo Judge Alpha
 
 [![Join the chat at https://gitter.im/{ORG-or-USERNAME}/{REPO-NAME}](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/EchoJudge/Lobby?utm_source=share-link&utm_medium=link&utm_campaign=share-link)
 
@@ -138,3 +138,12 @@ result.getCustomVerifier();//当使用自定义校验器是返回 true 否则返
 ### 详情请参阅 doc 文档
 
 [Echo Judge DOC 文档](https://sniffestherose.github.io/EchoJudge/doc/index.html) 
+
+
+<style>
+  .page-header{
+    background-image:url(doc/images/BackGround.jpg);
+    background-size: cover;
+    background-position: center;
+  }
+</style>

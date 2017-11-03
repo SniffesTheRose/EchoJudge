@@ -1,12 +1,5 @@
-# Echo Judge 自定义答案校验器使用说明
+﻿# Echo Judge 自定义答案校验器使用说明
 
-<style>
-  .page-header{
-    background-image:url(doc/images/BackGround.jpg);
-    background-size: cover;
-    background-position: center;
-  }
-</style>
 ------
 
 
@@ -179,3 +172,12 @@ Echo Judge 不会检测选手交互语句的格式是否合法，若有需要，
 
 
 **但我们不保证您所反馈的信息会被全部接收**
+
+
+<style>
+  .page-header{
+    background-image:url(doc/images/BackGround.jpg);
+    background-size: cover;
+    background-position: center;
+  }
+</style>
