@@ -1,7 +1,0 @@
-group: Echo
-
-os: windows
-
-language: java
-
-jdk: jdk8
