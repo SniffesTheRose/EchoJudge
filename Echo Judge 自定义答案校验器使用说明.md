@@ -213,7 +213,7 @@ int main(int argc, char *argv[])
 
 
 
-我们将通过表格向您展示 Testlib 提供的几个预定义结果宏
+我们将通过表格向您展示 Testlib 提供的几个预定义结果宏：
 
 
 
@@ -227,7 +227,7 @@ int main(int argc, char *argv[])
 
 
 
-以下是 Testlib 提供的常用 函数 和 对象
+以下是 Testlib 提供的常用 函数 和 对象：
 
 
 
@@ -252,7 +252,7 @@ int main(int argc, char *argv[])
 
 
 
-Testlib 不仅提供了 [checker](https://github.com/MikeMirzayanov/testlib/tree/master/checkers)，还提供了 [generator](https://github.com/MikeMirzayanov/testlib/tree/master/generators) 、[interactor](https://github.com/MikeMirzayanov/testlib/tree/master/interactors)、[validator](https://github.com/MikeMirzayanov/testlib/tree/master/validators) 。EchoJudge将会在之后的更新中逐步添加对这些功能的支持
+Testlib 不仅提供了 [checker](https://github.com/MikeMirzayanov/testlib/tree/master/checkers)，还提供了 [generator](https://github.com/MikeMirzayanov/testlib/tree/master/generators) 、[interactor](https://github.com/MikeMirzayanov/testlib/tree/master/interactors)、[validator](https://github.com/MikeMirzayanov/testlib/tree/master/validators) 。EchoJudge将会在之后的更新中逐步添加对这些功能的支持。
 
 
 
