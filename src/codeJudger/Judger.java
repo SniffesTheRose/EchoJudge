@@ -1,6 +1,7 @@
 package codeJudger;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -161,19 +162,15 @@ public abstract class Judger {
 	 *            临时输出文件目录
 	 * @param result
 	 *            运行时得到的测评结果
-	 * @param Score_File
-	 *            最终得分目录
 	 * @param Error_File
 	 *            错误报告目录
 	 * @return 答案比较结果
 	 */
 	public static EvaluationResult specialResultComparison(TestPoint std, String SPJ_File, String tempOutputFile,
-			EvaluationResult result, String Score_File, String Error_File) {
+			EvaluationResult result, String Error_File) {
 		try {
-			Process process = Runtime.getRuntime()
-					.exec("\"" + SPJ_File + "\" \"" + std.getTest_In() + "\" \"" + tempOutputFile + "\" \""
-							+ std.getTest_Out() + "\" \"" + std.getScore() + "\" \"" + Score_File + "\" \"" + Error_File
-							+ "\" ");
+			Process process = Runtime.getRuntime().exec("\"" + SPJ_File + "\" \"" + std.getTest_In() + "\" \""
+					+ tempOutputFile + "\" \"" + std.getTest_Out() + "\" \"" + Error_File + "\" ");
 
 			long begin = System.currentTimeMillis();
 			new Thread() {
@@ -194,13 +191,27 @@ public abstract class Judger {
 			String temp = null;
 			String Error = "";
 
-			BufferedReader score_Reader = new BufferedReader(new FileReader(Score_File));
+			BufferedReader score_Reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+			String score = score_Reader.readLine();
+
+			long _begin = System.currentTimeMillis();
+			while (!new File(Error_File).exists() && (System.currentTimeMillis() - _begin <= 5000))
+				try {
+					Thread.sleep(10);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					result.SetValue(EvaluationResult.System_Error);
+					return result;
+				}
+
 			BufferedReader error_Reader = new BufferedReader(new FileReader(Error_File));
 
 			while ((temp = error_Reader.readLine()) != null)
 				Error += temp + "\n";
 
-			result.setCustomVerifier(true, Error.equals("") ? null : Error, Long.parseLong(score_Reader.readLine()));
+			result.setCustomVerifier(true, Error.equals("") ? null : Error,
+					(long) (std.getScore() * Long.parseLong(score == null ? "0" : score) / 100.0));
 
 			error_Reader.close();
 			score_Reader.close();
