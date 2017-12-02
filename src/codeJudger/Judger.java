@@ -236,23 +236,6 @@ public abstract class Judger {
 	public static String compile(String cmd) throws IOException, InterruptedException {
 		Process process = Runtime.getRuntime().exec(cmd);
 
-		new Thread() {
-			@Override
-			public void run() {
-				try {
-					for (int i = 1; i <= 10 && process.isAlive(); i++)
-						Thread.sleep(1000);
-
-					SystemTools.taskKill(process);
-				} catch (InterruptedException | IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-
-					return;
-				}
-			}
-		}.start();
-
 		process.waitFor();
 
 		LineNumberReader input = new LineNumberReader(new InputStreamReader(process.getErrorStream()));
@@ -267,7 +250,7 @@ public abstract class Judger {
 		while ((line = input.readLine()) != null)
 			res += line + '\n';
 
-		return res.equals("") ? (process.exitValue() == 0 ? null : "编译超时") : res;
+		return res;
 	}
 
 	/**
