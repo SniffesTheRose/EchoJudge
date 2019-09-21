@@ -16,7 +16,7 @@ Echo Judge 目前仍在测试中，若您在使用中遇到问题，请联系开
 
 ----------
 ## 发布公告及下载地址
-[https://github.com/SniffesTheRose/EchoJudge/releases](https://github.com/SniffesTheRose/EchoJudge/releases "下载链接")
+[https://github.com/Snitro/EchoJudge/releases](https://github.com/Snitro/EchoJudge/releases "下载链接")
 
 
 
@@ -48,7 +48,8 @@ TestPoint point = new TestPoint("(long) 测试点时限", "(long) 测试点内�
 
 
 
-当然，我们也提供其他构造节点的方法，您可以阅读 [Doc文档](https://sniffestherose.github.io/EchoJudge/doc/codeJudger/TestPoint.html) 来了解他们
+当然，我们也提供其他构造节点的方法，您可以阅读 [Doc文档](https://snitro.github.io/EchoJudge/doc/codeJudger/TestPoint.html
+) 来了解他们
 
 
 
@@ -70,7 +71,7 @@ result.getTimeConsum();//获取程序运行耗时
 result.getValue();//获取程序运行结果
 ```
 
-程序运行结果将返回一个 EvaluationResult 类的常量，对应结果信息请参阅 [Doc文档](https://sniffestherose.github.io/EchoJudge/doc/constant-values.html#codeJudger.EvaluationResult.Accepted) 来了解他们
+程序运行结果将返回一个 EvaluationResult 类的常量，对应结果信息请参阅 [Doc文档](https://snitro.github.io/EchoJudge/doc/constant-values.html#codeJudger.EvaluationResult.Accepted) 来了解他们
 
 
 
@@ -124,9 +125,9 @@ result.getCustomVerifier();//当使用自定义校验器是返回 true 否则返
 
 
 
-自定义交互器的编写请参阅 [自定义答案校验器使用文档 - 交互器的编写方法](https://sniffestherose.github.io/EchoJudge/Echo%20Judge%20%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AD%94%E6%A1%88%E6%A0%A1%E9%AA%8C%E5%99%A8%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E#交互器的编写方法)
+自定义交互器的编写请参阅 [自定义答案校验器使用文档 - 交互器的编写方法](https://snitro.github.io/EchoJudge/Echo%20Judge%20%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AD%94%E6%A1%88%E6%A0%A1%E9%AA%8C%E5%99%A8%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E#交互器的编写方法)
 
-SpecialJudge的编写请参阅 [自定义答案校验器使用文档 - SepcialJudge 的编写方法](https://sniffestherose.github.io/EchoJudge/Echo%20Judge%20%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AD%94%E6%A1%88%E6%A0%A1%E9%AA%8C%E5%99%A8%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E#specialjudge-的编写方法)
+SpecialJudge的编写请参阅 [自定义答案校验器使用文档 - SepcialJudge 的编写方法](https://snitro.github.io/EchoJudge/Echo%20Judge%20%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AD%94%E6%A1%88%E6%A0%A1%E9%AA%8C%E5%99%A8%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E#specialjudge-的编写方法)
 
 
 
@@ -142,7 +143,7 @@ SpecialJudge的编写请参阅 [自定义答案校验器使用文档 - SepcialJu
 
 ### 详情请参阅 doc 文档
 
-[Echo Judge DOC 文档](https://sniffestherose.github.io/EchoJudge/doc/index.html) 
+[Echo Judge DOC 文档](https://snitro.github.io/EchoJudge/doc/index.html) 
 
 
 <style>
